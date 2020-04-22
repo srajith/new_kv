@@ -1,0 +1,53 @@
+<Login>:
+	username : username
+	password : password
+	update	: update
+	ScreenManager:
+		id: screen_manager
+		Screen:
+			name: "screen1"
+			BoxLayout
+				size_hint: 0.5, 0.5
+				pos_hint: {"center_x" : 0.5, "center_y": 0.7}
+				spacing: dp(50)
+				orientation: "vertical"
+					
+				MDTextField:
+					id: username
+					hint_text: "Username : "
+					helper_text: "2218104**"
+					helper_text_mode: "on_focus"
+					required: True
+					max_text_length: 9
+					multiline: False
+
+				MDTextField:
+					id: password
+					hint_text: "Password : "
+					helper_text: "yy-mm-dd"
+					helper_text_mode: "on_focus"
+					required: True
+					max_text_length: 8
+					multiline: False
+
+				MDRaisedButton:
+					text: "submit"
+					on_release:
+						screen_manager.current = "screen2"
+						root.update_text()
+		Screen:
+			name: "screen2"
+			BoxLayout
+				size_hint: 0.5, 0.5
+				pos_hint: {"center_x" : 0.5, "center_y": 0.5}
+				spacing: dp(80)
+				orientation: "vertical"
+
+				MDLabel:
+					id: update
+					text: "hello"
+
+				MDRaisedButton:
+					text: "back"
+					on_release:
+						screen_manager.current = "screen1"
